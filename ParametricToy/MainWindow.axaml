@@ -1,0 +1,25 @@
+﻿<Window x:Class="ParametricToy.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ParametricToy"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="450" 
+        Width="800" Background="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <local:Device Grid.Row="0" x:Name="Device" />
+
+        <Slider Name="Size" Minimum="0" Maximum="1.00" TickFrequency="0.01" Grid.Row="1" />
+        <Slider Name="Speed" Minimum="0" Maximum="1" Grid.Row="2" />
+        <Slider Name="Phase" Minimum="0" Maximum="1" Grid.Row="3" />
+    </Grid>
+</Window>
