@@ -20,7 +20,7 @@ namespace ParametricToy
             for (var i = 1; i < Trails; i++)
             {
                 var (x, y) = Point(ctx, t);
-                var a = ctx.Phase + Math.Cos(t) * ctx.Phase;
+                var a = Math.Cos(t) * ctx.Phase;
 
                 for (var j = 0; j < Axis; j++)
                 {
