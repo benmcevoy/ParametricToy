@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace ParametricToy
 {
@@ -19,14 +20,17 @@ namespace ParametricToy
 
             for (var i = 1; i < Trails; i++)
             {
-                var (x, y) = Point(ctx, t);
+                var x = t * ctx.Size;
+                var y = centerY;
                 var a = Math.Cos(t) * ctx.Phase;
-
+                
                 for (var j = 0; j < Axis; j++)
                 {
-                    var (x1, y2) = Rotate(a, x, y, centerX, centerY);
-
-                    sprite[Wrap(x1,Sprite.Width), Wrap(y2, Sprite.Height)] = i % Sprite.PaletteLength;
+                    var (x1, y1) = Rotate(a, x, y, centerX, centerY);
+                    var x2 = Wrap(x1, Sprite.Width);
+                    var y2 = Wrap(y1, Sprite.Height);
+                    
+                    sprite[x2, y2] = i % Sprite.PaletteLength;
 
                     a += TwoPi / Axis;
                 }
@@ -36,16 +40,6 @@ namespace ParametricToy
 
             return sprite;
         }
-
-        private static readonly Func<RenderContext, double, Tuple<double, double>> Point = (ctx, time) =>
-        {
-            const double centerX = Sprite.CenterX;
-            const double centerY = Sprite.CenterY;
-            var x = centerX - time * ctx.Size;
-            var y = centerY;
-
-            return new Tuple<double, double>(x, y);
-        };
 
         private static Tuple<double, double> Rotate(double angle, double x, double y, double centerX, double centerY)
         {

@@ -1,0 +1,26 @@
+﻿<Window x:Class="Kaleidoscope.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kaleidoscope"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="450" 
+        Width="800" Background="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="16"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <local:Device Grid.Row="0" x:Name="Device" />
+
+        <Slider Name="Triple" Minimum="0" Maximum="12" Grid.Row="1" />
+        <Slider Name="Iterations" Minimum="0" Maximum="100" Value="40" Grid.Row="2" />
+        <Slider Name="Size" Minimum="1" Maximum="300" Value="100" Grid.Row="3" />
+    </Grid>
+</Window>
